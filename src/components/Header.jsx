@@ -1,9 +1,10 @@
-import { useRef, useContext } from 'react';
-
+import React  from 'react';
+import { useRef } from 'react';
+import { useSelector } from 'react-redux';
 import CartModal from './CartModal.jsx';
-import { CartContext } from '../store/shopping-cart-contex.jsx';
+
 export default function Header() {
-  const {items} = useContext(CartContext);
+  const items = useSelector(state => state.cart.items);
   const modal = useRef();
 
   const cartQuantity = items.length;
